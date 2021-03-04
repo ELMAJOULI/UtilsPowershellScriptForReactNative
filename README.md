@@ -7,4 +7,8 @@
 - add onto your profile this line `` 
 Import-Module "[your cloned repo path]\createComponent.psm1" -Force 
 ``
+## Example 
+``
+New-RnComp -Name Input
+``
 ## Happy Hacking :D
