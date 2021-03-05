@@ -8,7 +8,11 @@
 Import-Module "[your cloned repo path]\createComponent.psm1" -Force 
 ``
 ## Example 
-``
+ps>``
 New-RnComp -Name Input
+``
+
+ps>``
+New-RnComp -Name Users -Store 1
 ``
 ## Happy Hacking :D
