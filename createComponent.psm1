@@ -1,15 +1,20 @@
 ﻿
 function New-RnComp{
 param(
-    [string]$Name
-)
+    [string]$Name,
+    [boolean]$Store
+    )
 if ($Name){ 
     New-Item ./$Name -ItemType Directory;
-    New-Item ./$Name/style.js -ItemType File;
-    $current=pwd
-    Get-Content $current/style.js | Out-File -FilePath ./$Name/style.js
-    New-Item ./$Name/index.js -ItemType File;
-    New-Item ./$Name/message.js -ItemType File;
+    
+    Copy-Item $PSScriptRoot/style.js -Destination ./$Name/style.js
+    Copy-Item $PSScriptRoot/index.js -Destination ./$Name/index.js
+    Copy-Item $PSScriptRoot/messages.js -Destination ./$Name/message.js
+    
+    if($Store){
+     Copy-Item $PSScriptRoot/store  -Destination ./$Name/ -Recurse
+    }
+
    }
 else {
     Write-Error -Message "Component Name is mandatory !!"
